@@ -1,4 +1,5 @@
-import { Leaf, Heart, Users, Award, Sparkles } from "lucide-react"
+// Path: app\(shop)\about\page.jsx
+import { Leaf, Heart, Users, Award, Sparkles } from "lucide-react";
 
 const values = [
   {
@@ -25,14 +26,14 @@ const values = [
     description:
       "We believe in sustainable practices, from ethical sourcing to eco-friendly packaging that cares for our planet.",
   },
-]
+];
 
 const stats = [
   { value: "2020", label: "Founded" },
   { value: "100+", label: "Products" },
   { value: "10K+", label: "Happy Customers" },
   { value: "Nationwide", label: "Delivery" },
-]
+];
 
 const milestones = [
   {
@@ -44,17 +45,20 @@ const milestones = [
   {
     year: "2021",
     title: "Growing Together",
-    description: "Expanded our product line and began serving customers across multiple cities.",
+    description:
+      "Expanded our product line and began serving customers across multiple cities.",
   },
   {
     year: "2022",
     title: "Nationwide Reach",
-    description: "Launched nationwide delivery, bringing quality spices and herbs to homes across the country.",
+    description:
+      "Launched nationwide delivery, bringing quality spices and herbs to homes across the country.",
   },
   {
     year: "2023",
     title: "Community Impact",
-    description: "Started our women empowerment initiative, supporting female entrepreneurs in the industry.",
+    description:
+      "Started our women empowerment initiative, supporting female entrepreneurs in the industry.",
   },
   {
     year: "2024",
@@ -62,12 +66,13 @@ const milestones = [
     description:
       "Expanded our collection to include premium oils and wellness products while maintaining our quality promise.",
   },
-]
+];
 
 export const metadata = {
   title: "About Us | Plants & Pure",
-  description: "Learn about Plants & Pure Limited - offering wholesome, natural products since 2020.",
-}
+  description:
+    "Learn about Plants & Pure Limited - offering wholesome, natural products since 2020.",
+};
 
 export default function AboutPage() {
   return (
@@ -81,19 +86,24 @@ export default function AboutPage() {
                 Wholesome, Natural Products Made with Love
               </h1>
               <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-                Plants & Pure Limited began in 2020, born from a dream to offer wholesome, natural products that make
-                life a bit more beautiful and healthy. Our founder, a passionate and driven woman, believed in the power
-                of quality ingredients and genuine care in every product we make.
+                Plants & Pure Limited began in 2020, born from a dream to offer
+                wholesome, natural products that make life a bit more beautiful
+                and healthy. Our founder, a passionate and driven woman,
+                believed in the power of quality ingredients and genuine care in
+                every product we make.
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                What started as a small operation in a home kitchen has now grown into a thriving business that serves
-                customers nationwide. Throughout our growth, we've maintained our commitment to quality, sustainability,
-                and empowering other women entrepreneurs.
+                What started as a small operation in a home kitchen has now
+                grown into a thriving business that serves customers nationwide.
+                Throughout our growth, we've maintained our commitment to
+                quality, sustainability, and empowering other women
+                entrepreneurs.
               </p>
               <p className="mt-4 text-muted-foreground leading-relaxed">
-                Each spice, herb, and oil in our collection is carefully selected, ethically sourced, and packaged with
-                love. We take pride in creating products that not only enhance your culinary adventures but also
-                contribute to your overall wellbeing.
+                Each spice, herb, and oil in our collection is carefully
+                selected, ethically sourced, and packaged with love. We take
+                pride in creating products that not only enhance your culinary
+                adventures but also contribute to your overall wellbeing.
               </p>
             </div>
             <div className="relative">
@@ -113,8 +123,12 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="text-3xl font-bold text-primary">{stat.value}</div>
-                <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
+                <div className="text-3xl font-bold text-primary">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-muted-foreground mt-1">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -127,7 +141,8 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl font-bold">Our Journey</h2>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              From a home kitchen to nationwide delivery, here's how we've grown while staying true to our values.
+              From a home kitchen to nationwide delivery, here's how we've grown
+              while staying true to our values.
             </p>
           </div>
           <div className="relative">
@@ -141,11 +156,21 @@ export default function AboutPage() {
                     index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
                   }`}
                 >
-                  <div className={`flex-1 ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}>
+                  <div
+                    className={`flex-1 ${
+                      index % 2 === 0 ? "lg:text-right" : "lg:text-left"
+                    }`}
+                  >
                     <div className="bg-card p-6 rounded-lg border border-border shadow-sm">
-                      <span className="text-primary font-bold text-lg">{milestone.year}</span>
-                      <h3 className="font-semibold text-lg mt-1">{milestone.title}</h3>
-                      <p className="text-muted-foreground mt-2">{milestone.description}</p>
+                      <span className="text-primary font-bold text-lg">
+                        {milestone.year}
+                      </span>
+                      <h3 className="font-semibold text-lg mt-1">
+                        {milestone.title}
+                      </h3>
+                      <p className="text-muted-foreground mt-2">
+                        {milestone.description}
+                      </p>
                     </div>
                   </div>
                   <div className="z-10 flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold text-sm shrink-0">
@@ -165,19 +190,76 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl font-bold">Our Values</h2>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              These core principles guide everything we do, from sourcing to delivery.
+              These core principles guide everything we do, from sourcing to
+              delivery.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value) => (
-              <div key={value.title} className="text-center p-6 rounded-lg bg-card border border-border">
+              <div
+                key={value.title}
+                className="text-center p-6 rounded-lg bg-card border border-border"
+              >
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
                   <value.icon className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="mt-4 font-semibold">{value.title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground">{value.description}</p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {value.description}
+                </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mission & Vision */}
+      <section className="py-16 bg-gray-50">
+        <div className="container px-4 mx-auto">
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
+            <div className="p-8 bg-white rounded-lg shadow-md">
+              <h2 className="mb-4 font-serif text-2xl text-gray-800">
+                Our Mission
+              </h2>
+              <div className="w-16 h-1 mb-6 bg-green-700"></div>
+              <p className="mb-6 text-gray-700">
+                {`
+                  Our mission is simple: to inspire and support women who want
+                  to create their own businesses with honesty and integrity.
+                  We're here to show that it's possible to succeed by sticking
+                  to high standards and delivering products that are good for
+                  the soul and the body.
+                  `}
+              </p>
+              <p className="text-gray-700">
+                We believe in creating a business ecosystem that values people
+                and planet alongside profit. Through our work, we aim to
+                demonstrate that ethical business practices can lead to
+                sustainable growth and meaningful impact.
+              </p>
+            </div>
+
+            <div className="p-8 bg-white rounded-lg shadow-md">
+              <h2 className="mb-4 font-serif text-2xl text-gray-800">
+                Our Vision
+              </h2>
+              <div className="w-16 h-1 mb-6 bg-amber-500"></div>
+              <p className="mb-6 text-gray-700">
+                {`We dream of a world where everyone can live beautifully and
+                  healthily, surrounded by the natural goodness of quality
+                  spices, herbs, and oils. At Plants & Pure, we strive to be
+                  your go-to for products that bring a touch of nature's beauty
+                  into your life.
+                    `}
+              </p>
+              <p className="text-gray-700">
+                Looking ahead, we envision a community of empowered women
+                entrepreneurs, all supporting each other and creating businesses
+                that make positive contributions to society. We aspire to be at
+                the forefront of sustainable practices in our industry, setting
+                new standards for quality and ethics.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -188,18 +270,23 @@ export default function AboutPage() {
           <Award className="h-12 w-12 text-primary mx-auto mb-6" />
           <h2 className="font-serif text-3xl font-bold mb-6">Our Promise</h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            "We promise to continue delivering products that are not just good for you, but good for the community and
-            the environment. Every purchase you make supports our mission to empower women and promote sustainable,
-            ethical sourcing practices."
+            "We promise to continue delivering products that are not just good
+            for you, but good for the community and the environment. Every
+            purchase you make supports our mission to empower women and promote
+            sustainable, ethical sourcing practices."
           </p>
-          <p className="mt-4 font-semibold text-primary">- Founder, Plants & Pure Limited</p>
+          <p className="mt-4 font-semibold text-primary">
+            - Founder, Plants & Pure Limited
+          </p>
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-16 lg:py-24 bg-primary">
         <div className="mx-auto max-w-7xl px-4 lg:px-8 text-center">
-          <h2 className="font-serif text-3xl font-bold text-primary-foreground">Experience the Pure Difference</h2>
+          <h2 className="font-serif text-3xl font-bold text-primary-foreground">
+            Experience the Pure Difference
+          </h2>
           <p className="mt-4 text-primary-foreground/90 max-w-xl mx-auto">
             Browse our collection of ethically sourced spices, herbs, and oils.
           </p>
@@ -212,5 +299,5 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
