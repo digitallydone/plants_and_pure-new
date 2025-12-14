@@ -8,9 +8,9 @@ const dmSans = DM_Sans({ subsets: ["latin"] });
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "PLANTS and PURE | Natural Plant Shop",
+  title: "PLANTS and PURE",
   description:
-    "Discover beautiful plants and pure, natural products for your home and garden.",
+    "Discover the essence of nature with PLANTS and PURE - your destination for premium natural spices and products derived from the purest plants. Embrace a healthier lifestyle with our eco-friendly and organic offerings.",
   keywords: [
     "plants",
     "indoor plants",
@@ -20,7 +20,7 @@ export const metadata = {
   ],
   authors: [{ name: "Plants and Pure", url: "https://plantsandpure.com" }],
   openGraph: {
-    title: "PLANTS and PURE | Natural Plant Shop",
+    title: "PLANTS and PURE - Natural Spices from Plants and Pure",
   },
 };
 
