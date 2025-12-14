@@ -1,4 +1,5 @@
 "use client"
+// Path: components\layout\header.jsx
 
 import { useState } from "react"
 import Link from "next/link"
@@ -31,8 +32,8 @@ export function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <Leaf className="h-8 w-8 text-primary" />
-          <span className="font-serif text-xl font-semibold tracking-tight">
+          {/* <Leaf className="h-8 w-8 text-primary" /> */}
+          <span className="font?-serif text-2xl font-semibold tracking-tight">
             PLANTS <span className="text-primary">&</span> PURE
           </span>
         </Link>

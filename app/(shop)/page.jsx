@@ -152,7 +152,7 @@ export default function HomePage() {
 
       {/* About Section */}
       <section className="py-16 bg-gray-50">
-        <div className="container px-4 mx-auto">
+        <div className=" max-w-7xl px-4 mx-auto">
           <div className="mb-16 text-center">
             <h2 className="mb-4 font-serif text-3xl text-gray-800">
               Our Story
@@ -207,7 +207,7 @@ export default function HomePage() {
 
       {/* Quality & Sustainability Section */}
       <section className="py-16 bg-gray-50">
-        <div className="container px-4 mx-auto">
+        <div className=" max-w-7xl px-4 mx-auto">
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
             {/* Quality */}
             <div>

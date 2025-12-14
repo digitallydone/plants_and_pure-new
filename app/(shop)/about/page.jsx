@@ -215,7 +215,7 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="py-16 bg-gray-50">
-        <div className="container px-4 mx-auto">
+        <div className=" max-w-7xl px-4 mx-auto">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
             <div className="p-8 bg-white rounded-lg shadow-md">
               <h2 className="mb-4 font-serif text-2xl text-gray-800">
