@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Leaf, Mail, Phone, MapPin } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const footerLinks = {
   shop: [
@@ -32,10 +33,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2">
-              <Leaf className="h-8 w-8 text-primary" />
-              <span className="font-serif text-xl font-semibold">
-                PLANTS <span className="text-primary">&</span> PURE
-              </span>
+              <Image width={120} height={80} src="/images/logo.jpeg" />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
               Dealer in natural herbal spices from natural ingredients. Made

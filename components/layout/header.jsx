@@ -1,41 +1,39 @@
-"use client"
 // Path: components\layout\header.jsx
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { useSession, signOut } from "next-auth/react"
-import { Menu, X, ShoppingCart, User, Search, Leaf } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { useCart } from "@/lib/hooks/use-cart"
+} from "@/components/ui/dropdown-menu";
+import { useCart } from "@/lib/hooks/use-cart";
+import { Menu, Search, ShoppingCart, User, X } from "lucide-react";
+import { signOut, useSession } from "next-auth/react";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 
 const navigation = [
   { name: "Shop", href: "/products" },
   { name: "Blog", href: "/blog" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
-]
+];
 
 export function Header() {
-  const { data: session } = useSession()
-  const { itemCount } = useCart()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { data: session } = useSession();
+  const { itemCount } = useCart();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 border-b border-border">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          {/* <Leaf className="h-8 w-8 text-primary" /> */}
-          <span className="font?-serif text-2xl font-semibold tracking-tight">
-            PLANTS <span className="text-primary">&</span> PURE
-          </span>
+          <Image width={120} height={80} src="/images/logo.jpeg" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -91,7 +89,9 @@ export function Header() {
                   </>
                 )}
                 <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => signOut()}>Sign Out</DropdownMenuItem>
+                <DropdownMenuItem onClick={() => signOut()}>
+                  Sign Out
+                </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
@@ -113,8 +113,16 @@ export function Header() {
               )}
             </Button>
           </Link>
-          <button type="button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-foreground">
-            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-foreground"
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
       </nav>
@@ -145,8 +153,8 @@ export function Header() {
                   </Link>
                   <button
                     onClick={() => {
-                      signOut()
-                      setMobileMenuOpen(false)
+                      signOut();
+                      setMobileMenuOpen(false);
                     }}
                     className="block py-2 text-base font-medium text-destructive"
                   >
@@ -167,5 +175,5 @@ export function Header() {
         </div>
       )}
     </header>
-  )
+  );
 }
