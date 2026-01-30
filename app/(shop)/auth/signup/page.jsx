@@ -1,15 +1,24 @@
-"use client"
+// Path: app\(shop)\auth\signup\page.jsx
+"use client";
+// Path: app\(shop)\auth\signup\page.jsx
 
-import { useState } from "react"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { signIn } from "next-auth/react"
-import { Leaf, Eye, EyeOff, Check } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { toast } from "sonner"
+import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
+import { Leaf, Eye, EyeOff, Check } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { toast } from "sonner";
 
 function GoogleIcon({ className }) {
   return (
@@ -31,84 +40,85 @@ function GoogleIcon({ className }) {
         d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
       />
     </svg>
-  )
+  );
 }
 
 export default function SignUpPage() {
-  const router = useRouter()
+  const router = useRouter();
 
-  const [name, setName] = useState("")
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [confirmPassword, setConfirmPassword] = useState("")
-  const [showPassword, setShowPassword] = useState(false)
-  const [isLoading, setIsLoading] = useState(false)
-  const [isGoogleLoading, setIsGoogleLoading] = useState(false)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isGoogleLoading, setIsGoogleLoading] = useState(false);
 
   const passwordRequirements = [
     { label: "At least 8 characters", met: password.length >= 8 },
     { label: "Contains a number", met: /\d/.test(password) },
     { label: "Contains uppercase letter", met: /[A-Z]/.test(password) },
-  ]
+  ];
 
-  const isPasswordValid = passwordRequirements.every((req) => req.met)
-  const doPasswordsMatch = password === confirmPassword && confirmPassword.length > 0
+  const isPasswordValid = passwordRequirements.every((req) => req.met);
+  const doPasswordsMatch =
+    password === confirmPassword && confirmPassword.length > 0;
 
   async function handleSubmit(e) {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!isPasswordValid) {
-      toast.error("Please meet all password requirements")
-      return
+      toast.error("Please meet all password requirements");
+      return;
     }
 
     if (!doPasswordsMatch) {
-      toast.error("Passwords do not match")
-      return
+      toast.error("Passwords do not match");
+      return;
     }
 
-    setIsLoading(true)
+    setIsLoading(true);
 
     try {
       const response = await fetch("/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),
-      })
+      });
 
-      const data = await response.json()
+      const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Registration failed")
+        throw new Error(data.error || "Registration failed");
       }
 
-      toast.success("Account created successfully!")
+      toast.success("Account created successfully!");
 
       // Auto sign in after registration
       const result = await signIn("credentials", {
         email,
         password,
         redirect: false,
-      })
+      });
 
       if (result?.ok) {
-        router.push("/")
-        router.refresh()
+        router.push("/");
+        router.refresh();
       }
     } catch (error) {
-      toast.error(error.message)
+      toast.error(error.message);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   }
 
   async function handleGoogleSignUp() {
-    setIsGoogleLoading(true)
+    setIsGoogleLoading(true);
     try {
-      await signIn("google", { callbackUrl: "/" })
+      await signIn("google", { callbackUrl: "/" });
     } catch (error) {
-      toast.error("Failed to sign up with Google")
-      setIsGoogleLoading(false)
+      toast.error("Failed to sign up with Google");
+      setIsGoogleLoading(false);
     }
   }
 
@@ -116,12 +126,10 @@ export default function SignUpPage() {
     <div className="min-h-[calc(100vh-200px)] flex items-center justify-center px-4 py-12">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
-          <Link href="/" className="inline-flex items-center justify-center gap-2 mb-4">
-            <Leaf className="h-8 w-8 text-primary" />
-            <span className="font-serif text-xl font-semibold">
-              PLANTS <span className="text-primary">&</span> PURE
-            </span>
-          </Link>
+          <Link
+            href="/"
+            className="inline-flex items-center justify-center gap-2 mb-4"
+          ></Link>
           <CardTitle className="font-serif text-2xl">Create Account</CardTitle>
           <CardDescription>Join our community of spice lovers</CardDescription>
         </CardHeader>
@@ -143,7 +151,9 @@ export default function SignUpPage() {
                 <span className="w-full border-t" />
               </div>
               <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-card px-2 text-muted-foreground">Or continue with email</span>
+                <span className="bg-card px-2 text-muted-foreground">
+                  Or continue with email
+                </span>
               </div>
             </div>
 
@@ -188,7 +198,11 @@ export default function SignUpPage() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                 >
-                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  {showPassword ? (
+                    <EyeOff className="h-4 w-4" />
+                  ) : (
+                    <Eye className="h-4 w-4" />
+                  )}
                 </button>
               </div>
               {password.length > 0 && (
@@ -198,7 +212,9 @@ export default function SignUpPage() {
                       key={i}
                       className={`text-xs flex items-center gap-1.5 ${req.met ? "text-primary" : "text-muted-foreground"}`}
                     >
-                      <Check className={`h-3 w-3 ${req.met ? "opacity-100" : "opacity-30"}`} />
+                      <Check
+                        className={`h-3 w-3 ${req.met ? "opacity-100" : "opacity-30"}`}
+                      />
                       {req.label}
                     </li>
                   ))}
@@ -217,19 +233,30 @@ export default function SignUpPage() {
                 disabled={isLoading}
               />
               {confirmPassword.length > 0 && (
-                <p className={`text-xs ${doPasswordsMatch ? "text-primary" : "text-destructive"}`}>
-                  {doPasswordsMatch ? "Passwords match" : "Passwords do not match"}
+                <p
+                  className={`text-xs ${doPasswordsMatch ? "text-primary" : "text-destructive"}`}
+                >
+                  {doPasswordsMatch
+                    ? "Passwords match"
+                    : "Passwords do not match"}
                 </p>
               )}
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-4">
-            <Button type="submit" className="w-full" disabled={isLoading || isGoogleLoading || !isPasswordValid}>
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={isLoading || isGoogleLoading || !isPasswordValid}
+            >
               {isLoading ? "Creating account..." : "Create Account"}
             </Button>
             <p className="text-sm text-center text-muted-foreground">
               Already have an account?{" "}
-              <Link href="/auth/signin" className="text-primary hover:underline font-medium">
+              <Link
+                href="/auth/signin"
+                className="text-primary hover:underline font-medium"
+              >
                 Sign in
               </Link>
             </p>
@@ -237,5 +264,5 @@ export default function SignUpPage() {
         </form>
       </Card>
     </div>
-  )
+  );
 }

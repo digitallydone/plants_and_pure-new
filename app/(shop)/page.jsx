@@ -2,28 +2,30 @@
 import Link from "next/link";
 import { ArrowRight, Truck, Shield, Leaf, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 const features = [
   {
     icon: Leaf,
-    title: "Sustainably Sourced",
+    title: "100% Natural & Pure",
     description:
-      "All our plants are grown with care using eco-friendly practices.",
+      "Our spices, herbs, and oils are sourced from nature, with no artificial additives or preservatives.",
   },
   {
     icon: Truck,
-    title: "Safe Delivery",
-    description: "Plants carefully packaged and delivered to your doorstep.",
+    title: "Fresh & Safe Delivery",
+    description:
+      "Carefully packaged to preserve freshness and delivered straight to your kitchen.",
   },
   {
     icon: Shield,
-    title: "Plant Guarantee",
-    description: "30-day guarantee on all plants. Your satisfaction matters.",
+    title: "Quality Guaranteed",
+    description:
+      "Every product is quality-checked to ensure purity, aroma, and authentic taste.",
   },
   {
     icon: Sparkles,
-    title: "Expert Care Tips",
-    description: "Get personalized care guides with every purchase.",
+    title: "Flavor & Wellness",
+    description:
+      "Enhance your meals with ingredients that support both great taste and healthy living.",
   },
 ];
 
@@ -31,22 +33,23 @@ const categories = [
   {
     name: "Spices",
     description:
-      "17 premium spice products to add zest and warmth to your favorite dishes.",
-    image: "/lush-indoor-potted-plant-monstera.jpg",
-    href: "/products?category=indoor",
+      "Premium, aromatic spices that bring rich flavor and warmth to everyday cooking.",
+    image: "/images/spices.jpg",
+    href: "/products?category=spices",
   },
   {
     name: "Herbs",
     description:
-      "2 pure, therapeutic-grade essential oils for culinary and skincare use.",
-    image: "/beautiful-outdoor-garden-plant.jpg",
-    href: "/products?category=outdoor",
+      "Naturally dried herbs perfect for seasoning, garnishing, and herbal infusions.",
+    image: "/images/herbs.jpg",
+    href: "/products?category=herbs",
   },
   {
-    name: "Essential Oils",
-    description: "Everything your plants need",
-    image: "/plant-care-products-soil-fertilizer.jpg",
-    href: "/products?category=care",
+    name: "Natural Oils",
+    description:
+      "Pure, food-grade oils ideal for cooking, dressing, and traditional wellness uses.",
+    image: "/images/oils.jpg",
+    href: "/products?category=oils",
   },
 ];
 
@@ -81,7 +84,7 @@ export default function HomePage() {
             </div>
             <div className="relative">
               <img
-                src="/beautiful-arrangement-of-indoor-plants-aesthetic.jpg"
+                src="/images/hero1.jpg"
                 alt="Beautiful plant arrangement"
                 className="rounded-lg shadow-2xl"
               />
@@ -128,14 +131,14 @@ export default function HomePage() {
                 href={category.href}
                 className="group relative overflow-hidden rounded-lg bg-card shadow-sm transition-all hover:shadow-md"
               >
-                <div className="aspect-[3/4] overflow-hidden">
+                <div className="aspect-3/4 overflow-hidden">
                   <img
                     src={category.image || "/placeholder.svg"}
                     alt={category.name}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-foreground/80 via-foreground/20 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-xl font-semibold text-background">
                     {category.name}
@@ -195,7 +198,7 @@ export default function HomePage() {
             <div className="md:w-1/2">
               <div className="overflow-hidden rounded-lg aspect-w-16 aspect-h-9">
                 <img
-                  src="/api/placeholder/600/400"
+                  src="/images/img3.jpeg"
                   alt="Our production facility"
                   className="object-cover w-full h-full"
                 />

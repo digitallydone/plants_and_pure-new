@@ -33,7 +33,7 @@ export function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
-          <Image width={120} height={80} src="/images/logo.jpeg" />
+          <Image width={120} height={80} src="/logo.jpeg" />
         </Link>
 
         {/* Desktop Navigation */}

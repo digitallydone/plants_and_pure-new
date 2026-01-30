@@ -33,7 +33,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-2">
-              <Image width={120} height={80} src="/images/logo.jpeg" />
+              <Image width={120} height={80} src="/logo.jpeg" />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
               Dealer in natural herbal spices from natural ingredients. Made

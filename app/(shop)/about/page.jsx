@@ -108,7 +108,7 @@ export default function AboutPage() {
             </div>
             <div className="relative">
               <img
-                src="/woman-entrepreneur-with-natural-spices-herbs-and-o.jpg"
+                src="/images/img1.jpeg"
                 alt="Our founder with natural products"
                 className="rounded-lg shadow-xl"
               />
